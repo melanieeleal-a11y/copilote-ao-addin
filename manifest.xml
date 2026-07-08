@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+           xsi:type="TaskPaneApp">
+  <Id>b9819d0e-e5e9-496d-b5c5-8f74c2205b97</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Énergies Locales</ProviderName>
+  <DefaultLocale>fr-FR</DefaultLocale>
+  <DisplayName DefaultValue="Copilote AO"/>
+  <Description DefaultValue="Copilote appels d'offres d'Énergies Locales : analyse du DCE, conformité, réécriture du mémoire technique directement dans Word."/>
+  <IconUrl DefaultValue="https://melanieeleal-a11y.github.io/copilote-ao-addin/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://melanieeleal-a11y.github.io/copilote-ao-addin/assets/icon-80.png"/>
+  <SupportUrl DefaultValue="https://github.com/melanieeleal-a11y/copilote-ao-addin"/>
+  <AppDomains>
+    <AppDomain>https://melanieeleal-a11y.github.io</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Document"/>
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="WordApi" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://melanieeleal-a11y.github.io/copilote-ao-addin/taskpane.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Document">
+        <DesktopFormFactor>
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="CopiloteAO.Groupe">
+                <Label resid="CopiloteAO.GroupeLabel"/>
+                <Icon>
+                  <bt:Image size="16" resid="CopiloteAO.Icone16"/>
+                  <bt:Image size="32" resid="CopiloteAO.Icone32"/>
+                  <bt:Image size="80" resid="CopiloteAO.Icone80"/>
+                </Icon>
+                <Control xsi:type="Button" id="CopiloteAO.BoutonVolet">
+                  <Label resid="CopiloteAO.BoutonLabel"/>
+                  <Supertip>
+                    <Title resid="CopiloteAO.BoutonLabel"/>
+                    <Description resid="CopiloteAO.BoutonTip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="CopiloteAO.Icone16"/>
+                    <bt:Image size="32" resid="CopiloteAO.Icone32"/>
+                    <bt:Image size="80" resid="CopiloteAO.Icone80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>CopiloteAO.Volet</TaskpaneId>
+                    <SourceLocation resid="CopiloteAO.Url"/>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="CopiloteAO.Icone16" DefaultValue="https://melanieeleal-a11y.github.io/copilote-ao-addin/assets/icon-16.png"/>
+        <bt:Image id="CopiloteAO.Icone32" DefaultValue="https://melanieeleal-a11y.github.io/copilote-ao-addin/assets/icon-32.png"/>
+        <bt:Image id="CopiloteAO.Icone80" DefaultValue="https://melanieeleal-a11y.github.io/copilote-ao-addin/assets/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="CopiloteAO.Url" DefaultValue="https://melanieeleal-a11y.github.io/copilote-ao-addin/taskpane.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="CopiloteAO.GroupeLabel" DefaultValue="Énergies Locales"/>
+        <bt:String id="CopiloteAO.BoutonLabel" DefaultValue="Copilote AO"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="CopiloteAO.BoutonTip" DefaultValue="Ouvre le copilote appels d'offres dans un volet à côté de votre document."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
